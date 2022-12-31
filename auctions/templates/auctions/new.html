@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Create new auction</h2>
+<p style="color:red">{{ message }}</p>
+<form action="{% url 'new' %}" method="post">
+    {% csrf_token %}
+    <input class="form-control" type="text" name="name" placeholder="Auction name"><br>
+    <textarea class="form-control" name="information" rows="10" cols="30"></textarea><br>
+    <input class="form-control" type="number" name="startprice" placeholder="Start price" min="1"><br>
+    <input class="form-control" type="url" name="photo" placeholder="The photo ULR"><br>
+
+    <select class="form-select" aria-label="Default select example" id="categories" name="categories">
+        <option selected>Open this select menu</option>
+        {% for category in categories %}
+        <option value={{ category }}>{{ category }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <div class="d-grid gap-2">
+        <input class="btn btn-primary" type="submit" value="Create New"><br>
+    </div>
+</form>
+{% endblock %}

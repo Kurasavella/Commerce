@@ -1,0 +1,16 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Categories</h2>
+<div class="form-check">
+    <form action="{% url 'category' '{{ category }}' %}" method="get">
+        {% for category in categories %}
+        <div style="font-size: 19px;">
+            <input name="categories" type="radio" name={{ category }} value={{ category }}>
+            <label for={{ category }}">{{ category }}</label><br><br>
+        </div>
+        {% endfor %}
+        <input type="submit" value="Select" class="btn btn-primary btn-lg">
+    </form>
+</div>
+{% endblock %}

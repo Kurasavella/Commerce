@@ -1,0 +1,46 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Hello, {{ user.username }}!<br></h2>
+<div class="flex-container">
+    {% for list in couples_auction_price %}
+    <div class="grid-container">
+        {% if list.0.not_closed == False %}
+        <div id="text" class="grid-item">
+            <h4>lot N{{ list.0.id }}: {{ list.0.name }}</h4>
+        </div>
+        <div id="text" class="grid-item">
+            <h5>({{ list.0.category }})</h5>
+        </div>
+        <div id="text" class="grid-item">
+            <h5>The auction already is not active!!!!!</h5>
+        </div>
+        <div class="grid-item">
+            <img src="{{ list.0.photo }}" alt="{{ list.0.name }}" width="330" height="250">
+        </div><br>
+        <div class="grid-item">
+            <a href="{% url 'auction' list.0.id %}" class="btn btn-primary active" role="button" data-bs-toggle="button">Detail information</a><br>
+        </div>
+        {% else %}
+        <div id="text" class="grid-item">
+            <h4>lot N{{ list.0.id }}: {{ list.0.name }}</h4>
+        </div>
+        <div id="text" class="grid-item">
+            <h5>({{ list.0.category }})</h5>
+        </div>
+        <div id="text" class="grid-item">
+            <h5>Current price: {{ list.1 }}$ (The startprice: {{ list.0.startprice }}$)</h5>
+        </div>
+        <div class="grid-item">
+            <img src="{{ list.0.photo }}" alt="{{ list.0.name }}" width="330" height="250"><br>
+        </div><br>
+        <div class="grid-item">
+            <a href="{% url 'auction' list.0.id %}" class="btn btn-primary active" role="button" data-bs-toggle="button">Detail information</a>
+        </div>
+        {% endif %}
+    </div>
+    {% empty %}
+    <h5>You have not choosen any auctions for searching yet!</h5>
+    {% endfor %}
+</div>
+{% endblock %}

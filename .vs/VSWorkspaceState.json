@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\auctions",
+    "\\auctions\\migrations",
+    "\\auctions\\templates",
+    "\\auctions\\templates\\auctions",
+    "\\auctions\\__pycache__",
+    "\\commerce"
+  ],
+  "SelectedNode": "\\auctions\\templates\\auctions\\watchlist.html",
+  "PreviewInSolutionExplorer": false
+}
